@@ -1,0 +1,13 @@
+.navbar {
+  width: 100%;
+  background-color: #242424;
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+.Search-Field {
+  width: 40%;
+  height: 30px;
+  padding: 5px;
+}
