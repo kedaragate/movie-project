@@ -19,7 +19,7 @@ function MoviesCards(props) {
     e.target.className === "blur-background" ? setIsTrailerActive(false) : null;
     console.log(e.target);
   }
-const mode=props.mode?"darkMode":none;
+const mode=props.mode?"darkMode":"";
   const movieItems = props.popularMovies.map((movie) => {
     return (
       //     <>
