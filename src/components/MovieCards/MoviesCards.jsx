@@ -35,7 +35,7 @@ const mode=props.mode?"darkMode":"";
           <h2 className="movie-title">{movie.title}</h2>
 
           <button
-            className="watch-trailer-button" style={mode==="darkMode"&{backgrounColor:'#242424',color:'white'}}
+            className="watch-trailer-button" style={mode==="darkMode"&&{backgrounColor:'#242424',color:'white'}}
             onClick={() => handleClick(movie.id)}
           >
             Watch Trailer
