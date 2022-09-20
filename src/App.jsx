@@ -51,6 +51,7 @@ function App() {
 
       <MoviesCards
         popularMovies={popularMovies}
+mode={lightMode}
         // fetchMoreData={fetchMoreData}
       />
     </>
