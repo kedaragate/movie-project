@@ -16,6 +16,14 @@ function App() {
         setFullMovieData(popularMoviesData.items);
     }, 1000);
   }, []);
+  // console.log(popularMoviesData);
+  // function fetchMoreData() {
+  //   // a fake async api call like which sends
+  //   // 20 more records in 1.5 secs
+  //   setTimeout(() => {
+  //     setPopularMovies(popularMovies.concat(popularMoviesData.items));
+  //   }, 1500);
+  // }
 
   function searchFieldOnChange(e) {
     const enteredValue = e.target.value;
@@ -31,7 +39,10 @@ function App() {
     <>
       <NavigationBar value={input} onChange={searchFieldOnChange} />
 
-      <MoviesCards popularMovies={popularMovies} />
+      <MoviesCards
+        popularMovies={popularMovies}
+        // fetchMoreData={fetchMoreData}
+      />
     </>
   );
 }

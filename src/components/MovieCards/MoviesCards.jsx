@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import TrailerWindow from "../TrailerWindow/TrailerWindow";
 import "./MoviesCards.css";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function MoviesCards(props) {
   const [trailer, setTrailer] = useState("");
@@ -52,7 +53,19 @@ function MoviesCards(props) {
           handleClickOnBlur={handleClickOnBlur}
         />
       ) : null}
+      {/* <InfiniteScroll */}
+      {/* dataLength={props.popularMovies.length}
+        next={props.fetchMoreData}
+        hasMore={true}
+        loader={<h4>Loading...</h4>}
+        endMessage={
+          <p style={{ textAlign: "center" }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        } */}
+      {/* > */}
       <ul className="container">{movieItems}</ul>
+      {/* </InfiniteScroll> */}
     </>
   );
 }
