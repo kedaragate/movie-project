@@ -19,11 +19,11 @@ function MoviesCards(props) {
     e.target.className === "blur-background" ? setIsTrailerActive(false) : null;
     console.log(e.target);
   }
-
+const mode=props.mode?"darkMode":none;
   const movieItems = props.popularMovies.map((movie) => {
     return (
       //     <>
-      <div className={"card"+ props.mode?"darkMode":""} key={movie.id}>
+      <div className={"card"+mode } key={movie.id}>
         <div className="movie-poster-container">
           <img src={movie.image} className="movie-poster" />
         </div>
