@@ -23,7 +23,7 @@ function MoviesCards(props) {
   const movieItems = props.popularMovies.map((movie) => {
     return (
       //     <>
-      <div className="card" key={movie.id}>
+      <div className={"card"+ props.mode?darkMode:""} key={movie.id}>
         <div className="movie-poster-container">
           <img src={movie.image} className="movie-poster" />
         </div>
