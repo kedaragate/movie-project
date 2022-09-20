@@ -9,6 +9,11 @@ function App() {
   const [fullMovieData, setFullMovieData] = useState([]);
 
   const [input, setInput] = useState("");
+  const [lightMode, setLightMode] = useState(true);
+
+  function switchMode() {
+    setLightMode(!lightMode);
+  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -37,7 +42,12 @@ function App() {
 
   return (
     <>
-      <NavigationBar value={input} onChange={searchFieldOnChange} />
+      <NavigationBar
+        value={input}
+        onChange={searchFieldOnChange}
+        switchMode={switchMode}
+        mode={lightMode}
+      />
 
       <MoviesCards
         popularMovies={popularMovies}

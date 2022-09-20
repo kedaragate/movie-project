@@ -4,11 +4,6 @@ import { faToggleOn, faToggleOff } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 export default function NavigationBar(props) {
-  const [lightMode, setLightMode] = useState(true);
-
-  function switchMode() {
-    setLightMode(!lightMode);
-  }
   return (
     <>
       <div className="navbar">
@@ -26,8 +21,8 @@ export default function NavigationBar(props) {
           placeholder="Search movies"
         />
         <FontAwesomeIcon
-          icon={lightMode ? faToggleOn : faToggleOff}
-          onClick={switchMode}
+          icon={props.mode ? faToggleOn : faToggleOff}
+          onClick={props.switchMode}
           className="toggle-button"
         />
       </div>
