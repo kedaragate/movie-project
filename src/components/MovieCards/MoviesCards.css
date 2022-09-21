@@ -18,16 +18,6 @@
   border-radius: 8px;
 }
 
-.card:hover {
-  transform: scale(1.01);
-}
-
-.darkMode{
-  
-  background-color: #242424;
-  color: whitesmoke;
-  
-}
 .movie-poster-container {
   width: 220px;
   margin: 0 auto;

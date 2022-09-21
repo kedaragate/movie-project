@@ -20,8 +20,9 @@ export default function NavigationBar(props) {
           onChange={(e) => props.onChange(e)}
           placeholder="Search movies"
         />
+
         <FontAwesomeIcon
-          icon={props.mode ? faToggleOn : faToggleOff}
+          icon={props.darkMode ? faToggleOn : faToggleOff}
           onClick={props.switchMode}
           className="toggle-button"
         />

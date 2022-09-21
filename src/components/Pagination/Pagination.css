@@ -1,0 +1,22 @@
+.pagination-container {
+  display: flex;
+  margin: 10px 10px;
+}
+
+.btn {
+  background-color: #242424;
+  color: white;
+
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+  display: block;
+}
+
+.btn:hover {
+  background-color: orangered;
+  box-shadow: 2px 2px 2px black;
+  transform: scale(1.1);
+}

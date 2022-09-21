@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Component } from "react";
 import MoviesCards from "./components/MovieCards/MoviesCards";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import popularMoviesData from "./assets/data/popularMoviesData";
+import Pagination from "./components/Pagination/Pagination";
 import "./App.css";
 
 function App() {
@@ -9,15 +10,19 @@ function App() {
   const [fullMovieData, setFullMovieData] = useState([]);
 
   const [input, setInput] = useState("");
-  const [lightMode, setLightMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
+  const [page, setPage] = useState({
+    from: 0,
+    to: 20,
+  });
 
   function switchMode() {
-    setLightMode(!lightMode);
+    setDarkMode(!darkMode);
   }
 
   useEffect(() => {
     setTimeout(() => {
-      setPopularMovies(popularMoviesData.items),
+      setPopularMovies(popularMoviesData.items.slice(page.from, page.to)),
         setFullMovieData(popularMoviesData.items);
     }, 1000);
   }, []);
@@ -46,14 +51,15 @@ function App() {
         value={input}
         onChange={searchFieldOnChange}
         switchMode={switchMode}
-        mode={lightMode}
+        darkMode={darkMode}
       />
 
       <MoviesCards
         popularMovies={popularMovies}
-mode={lightMode}
+        darkMode={darkMode}
         // fetchMoreData={fetchMoreData}
       />
+      <Pagination page={page} />
     </>
   );
 }
