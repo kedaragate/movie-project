@@ -13,16 +13,24 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [page, setPage] = useState({
     from: 0,
-    to: 20,
+    to: 0,
   });
 
   function switchMode() {
     setDarkMode(!darkMode);
   }
 
+  function onNextButtonClick(e) {
+    console.log(fullMovieData.length);
+    for (let i = 0; i <= fullMovieData.length; i++) {
+      setPopularMovies([fullMovieData[i]]);
+      console.log(fullMovieData[i]);
+    }
+  }
+
   useEffect(() => {
     setTimeout(() => {
-      setPopularMovies(popularMoviesData.items.slice(page.from, page.to)),
+      setPopularMovies(popularMoviesData.items),
         setFullMovieData(popularMoviesData.items);
     }, 1000);
   }, []);
@@ -59,7 +67,7 @@ function App() {
         darkMode={darkMode}
         // fetchMoreData={fetchMoreData}
       />
-      <Pagination page={page} />
+      <Pagination page={page} onNextButtonClick={onNextButtonClick} />
     </>
   );
 }
