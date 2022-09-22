@@ -4,6 +4,7 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import popularMoviesData from "./assets/data/popularMoviesData";
 import Pagination from "./components/Pagination/Pagination";
 import "./App.css";
+import { faJarWheat, faJoint } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   let [popularMovies, setPopularMovies] = useState([]);
@@ -12,21 +13,48 @@ function App() {
   const [input, setInput] = useState("");
   const [darkMode, setDarkMode] = useState(false);
   const [page, setPage] = useState({
-    from: 0,
-    to: 0,
+    prevFrom: 0,
+    prevTo: 0,
+    currentFrom: 0,
+    currentTo: 0,
+    nextFrom: 0,
+    nextTo: 0,
+    itemsPerPage: 3,
   });
 
   function switchMode() {
     setDarkMode(!darkMode);
   }
+  let totalPages = Math.ceil(fullMovieData.length / page.itemsPerPage);
+  function onNextButtonClick() {
+    setPage((prev) => {
+      return {
+        ...prev,
+        prevFrom: page.prevFrom + page.itemsPerPage,
+        prevTo: page.prevFrom + 2 * page.itemsPerPage,
 
-  function onNextButtonClick(e) {
-    console.log(fullMovieData.length);
-    for (let i = 0; i <= fullMovieData.length; i++) {
-      setPopularMovies([fullMovieData[i]]);
-      console.log(fullMovieData[i]);
-    }
+        currentFrom: page.prevFrom + page.itemsPerPage,
+        currentTo: page.prevFrom + 2 * page.itemsPerPage,
+      };
+    });
+
+    setPopularMovies(fullMovieData.slice(page.currentFrom, page.currentTo));
   }
+  // function onPrevButtonClick() {
+  //   for (let i = 0; i < fullMovieData.length; i++) {
+  //     setPage((prev) => {
+  //       return {
+  //         ...prev,
+  //         // prevFrom: page.prevFrom - page.itemsPerPage,
+  //         // prevTo: page.prevFrom - 2 * page.itemsPerPage,
+
+  //         // currentFrom: page.prevFrom - page.itemsPerPage,
+  //         // currentTo: page.prevFrom - 2 * page.itemsPerPage,
+  //       };
+  //     });
+  //   }
+  //   setPopularMovies(fullMovieData.slice(page.currentFrom, page.currentTo));
+  // }
 
   useEffect(() => {
     setTimeout(() => {
@@ -67,7 +95,11 @@ function App() {
         darkMode={darkMode}
         // fetchMoreData={fetchMoreData}
       />
-      <Pagination page={page} onNextButtonClick={onNextButtonClick} />
+      <Pagination
+        page={page}
+        onNextButtonClick={onNextButtonClick}
+        // onPrevButtonClick={onPrevButtonClick}
+      />
     </>
   );
 }
