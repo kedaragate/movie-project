@@ -46,7 +46,7 @@ function App() {
       return;
     } else {
       if (page.currentTo>fullMovieData.length) {
-        setPopularMovies(popularMoviesData.items.slice(0, itemsPerPage))
+        setPage({currentFrom:0, currentTo:itemsPerPage})
       } else {
         setPopularMovies(fullMovieData.slice(page.currentFrom, page.currentTo));
       }
