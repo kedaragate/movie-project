@@ -12,7 +12,7 @@ function App() {
 
   const [input, setInput] = useState("");
   const [darkMode, setDarkMode] = useState(false);
-  const itemsPerPage = 3;
+  const itemsPerPage = 6;
   const [page, setPage] = useState({
     prevFrom: 0,
     prevTo: 0,
@@ -45,39 +45,39 @@ function App() {
     if (page.currentFrom >= fullMovieData.length) {
       return;
     } else {
-      if (page.currentTo>fullMovieData.length) {
-        setPage({currentFrom:0, currentTo:itemsPerPage})
+      if (page.currentTo > fullMovieData.length) {
+        setPage({ currentFrom: 0, currentTo: itemsPerPage });
       } else {
         setPopularMovies(fullMovieData.slice(page.currentFrom, page.currentTo));
       }
     }
   }
-  function onPrevButtonClick() {
-    setPage((prev) => {
-      return {
-        ...prev,
-        prevFrom: page.currentFrom - itemsPerPage,
-        prevTo: page.currentFrom - 2 * itemsPerPage,
-      };
-    });
+  // function onPrevButtonClick() {
+  //   setPage((prev) => {
+  //     return {
+  //       ...prev,
+  //       prevFrom: page.currentFrom - itemsPerPage,
+  //       prevTo: page.currentFrom - 2 * itemsPerPage,
+  //     };
+  //   });
 
-    setPage((prev) => {
-      return {
-        ...prev,
-        currentFrom: page.currentFrom - itemsPerPage,
-        currentTo: page.currentFrom - 2 * itemsPerPage,
-      };
-    });
-    // if (page.currentFrom <= fullMovieData.length) {
+  //   setPage((prev) => {
+  //     return {
+  //       ...prev,
+  //       currentFrom: page.currentFrom - itemsPerPage,
+  //       currentTo: page.currentFrom - 2 * itemsPerPage,
+  //     };
+  //   });
+  //   // if (page.currentFrom <= fullMovieData.length) {
 
-    setPopularMovies(fullMovieData.slice(page.currentFrom, page.currentTo));
-  }
+  //   setPopularMovies(fullMovieData.slice(page.currentFrom, page.currentTo));
+  // }
   console.log(page.currentFrom);
   console.log(page.currentTo);
   useEffect(() => {
     setTimeout(() => {
-      setPopularMovies(popularMoviesData.items.slice(0, itemsPerPage)),
-        setFullMovieData(popularMoviesData.items);
+      setPopularMovies(popularMoviesData.items.slice(0, itemsPerPage));
+      setFullMovieData(popularMoviesData.items);
     }, 1000);
   }, []);
   // console.log(popularMoviesData);
@@ -116,7 +116,7 @@ function App() {
       <Pagination
         page={page}
         onNextButtonClick={onNextButtonClick}
-        onPrevButtonClick={onPrevButtonClick}
+        // onPrevButtonClick={onPrevButtonClick}
       />
     </>
   );

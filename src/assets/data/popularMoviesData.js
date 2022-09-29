@@ -247,19 +247,19 @@ let popularMoviesData = {
       imDbRating: "6.4",
       imDbRatingCount: "173774",
     },
-    // {
-    //   id: "tt14001894",
-    //   rank: "20",
-    //   rankUpDown: "+15",
-    //   title: "Secret Headquarters",
-    //   fullTitle: "Secret Headquarters (2022)",
-    //   year: "2022",
-    //   image:
-    //     "https://m.media-amazon.com/images/M/MV5BM2MxZmU0ZmYtZDNiNi00MTA3LThhNDQtNzI1YjYwYzhjZDExXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_Ratio0.6716_AL_.jpg",
-    //   crew: "Henry Joost (dir.), Owen Wilson, Michael Peña",
-    //   imDbRating: "4.9",
-    //   imDbRatingCount: "3016",
-    // },
+    {
+      id: "tt14001894",
+      rank: "20",
+      rankUpDown: "+15",
+      title: "Secret Headquarters",
+      fullTitle: "Secret Headquarters (2022)",
+      year: "2022",
+      image:
+        "https://m.media-amazon.com/images/M/MV5BM2MxZmU0ZmYtZDNiNi00MTA3LThhNDQtNzI1YjYwYzhjZDExXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_Ratio0.6716_AL_.jpg",
+      crew: "Henry Joost (dir.), Owen Wilson, Michael Peña",
+      imDbRating: "4.9",
+      imDbRatingCount: "3016",
+    },
     // {
     //   id: "tt10028196",
     //   rank: "21",
